@@ -3,7 +3,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import Favourites from './Favourites.svelte';
 	import { browser } from '$app/environment';
-	import Examples from './Examples.svelte';
+	import Examples from './Questions.svelte';
 
 	const dispatch = createEventDispatcher<{ selectOption: number }>();
 
@@ -16,7 +16,7 @@
 			color: 'red'
 		},
 		{
-			label: 'Examples',
+			label: 'Questions',
 			icon: 'mi:archive',
 			color: 'teal'
 		}

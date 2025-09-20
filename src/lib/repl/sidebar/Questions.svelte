@@ -3,14 +3,14 @@
 	import Loading from '$lib/Loading.svelte';
 	import { compress, type Fiddle } from '$lib/compress-fiddle';
 	import { onMount } from 'svelte';
-	import { files, fiddleTitle, fiddleUpdated, favouriteIndex } from '$lib/repl/state';
+	import { files, fiddleTitle, fiddleUpdated, favouriteIndex, questionsList } from '$lib/repl/state';
 
-	async function fetchExampleFile(path: string) {
-		const res = await fetch(`/examples/${path}`);
+	async function fetchQuestionFile(path: string) {
+		const res = await fetch(`/questions/${path}`);
 		return res.text();
 	}
 
-	function openExample(example: Fiddle) {
+	function openQuestion(example: Fiddle) {
 		if ($favouriteIndex !== -1) {
 			$favouriteIndex = -1;
 		}
@@ -22,44 +22,16 @@
 		goto(`/#${fiddleFragmentURL}`);
 	}
 
-	let examples: Fiddle[] = [];
+	let examples: any[] = [];
 	onMount(async () => {
-		examples = [
-			{
-				title: 'Hello world',
-				files: [
-					{
-						path: 'Main.java',
-						content: await fetchExampleFile('hello-world/Main.java')
-					}
-				]
-			},
-			{
-				title: 'GUI with Swing',
-				files: [
-					{
-						path: 'Main.java',
-						content: await fetchExampleFile('hello-world-swing/Main.java')
-					}
-				]
-			},
-			/*{
-				title: '3D with LWJGL',
-				files: [
-					{
-						path: 'Main.java',
-						content: await fetchExampleFile('lwjgl/Main.java')
-					}
-				]
-			},*/
-		];
+		examples = $questionsList;
 	});
 </script>
 
 {#each examples as fiddle}
 	<button
 		class="w-full text-left flex items-center px-4 py-2 hover:bg-stone-200 dark:hover:bg-stone-900"
-		on:click={() => openExample(fiddle)}
+		on:click={() => openQuestion(fiddle)}
 	>
 		<div class="grow">{fiddle.title}</div>
 	</button>

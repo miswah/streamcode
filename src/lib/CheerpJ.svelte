@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import { autoRun, compileLog, files, isRunning, isSaved, runCode, type File } from './repl/state';
+	import { autoRun, compileLog, files, isRunning, isSaved, runCode, type File, questionsList } from './repl/state';
 	import { debounceFunction } from './utilities';
 
 	let cjConsole: HTMLElement;
@@ -57,9 +57,49 @@
 	let unsubSaveFiles: () => void;
 	let unsubRunCode: () => void;
 
+	async function fetchQuestionFile(path: string) {
+    	const res = await fetch(`/questions/${path}`);
+        return res.text();
+	}
+
+	async function loadQuestionsList(){
+		let questions = [
+			{
+				title: 'Hello world',
+				files: [
+					{
+						path: 'Main.java',
+						text: await fetchQuestionFile('hello-world/text.html'),
+						content: await fetchQuestionFile('hello-world/Main.java')
+					}
+				]
+			},{
+				title: 'Filter Even Numbers from a List',
+				files: [
+					{
+						path: 'Main.java',
+						text: await fetchQuestionFile('1/text.html'),
+						content: await fetchQuestionFile('1/Main.java')
+					}
+				]
+			},{
+				title: 'Find Maximum in a List',
+				files: [
+					{
+						path: 'Main.java',
+						text: await fetchQuestionFile('2/text.html'),
+						content: await fetchQuestionFile('1/Main.java')
+					}
+				]
+			},	
+		];
+
+		questionsList.set(questions);
+	} 
+
 	onMount(async () => {
 		await startCheerpj();
-
+		await loadQuestionsList();
 		cjConsole = document.getElementById("console");
 		cjOutput = document.getElementById("cheerpjDisplay");
 		// remove useless loading screen

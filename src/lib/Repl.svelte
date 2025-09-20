@@ -7,6 +7,7 @@
 	import { SplitPane } from '@rich_harris/svelte-split-pane';
 	import { tryPlausible } from './utilities';
 	import Output from './repl/Output.svelte';
+	import QuestionDetails from './repl/QuestionDetails.svelte';
 
 	export let enableSidebar: boolean = true;
 	export let enableMenu: boolean = true;
@@ -40,6 +41,9 @@
 		{#if enableSidebar}
 			<Sidebar />
 		{/if}
+		<div class="flex-1" style="overflow-y: scroll;">
+			<QuestionDetails />
+		</div>
 		<div class="flex-1 overflow-hidden">
 			<SplitPane type="vertical" min="64px" max="-64px">
 				<section slot="a" class="h-1/2 flex flex-col">

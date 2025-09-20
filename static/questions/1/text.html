@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Filter Even Numbers from a List</title>
+  <style>
+    .body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071024 0%, #051428 100%);
+      color: #e6eef6;
+      margin: 0;
+      padding: 32px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header { display:flex; align-items:center; gap:16px; margin-bottom:20px; }
+    .header-left { flex-grow:1; }
+    .title { margin:0; font-size:22px; }
+    .meta { color:#9aa4b2; font-size:13px; }
+    .badge { background:rgba(255,255,255,0.04); color:#9aa4b2; padding:6px 8px; border-radius:999px; font-size:12px; }
+    .card { background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:20px; border-radius:12px; box-shadow:0 6px 24px rgba(2,6,23,0.6); margin-bottom:16px; }
+    .section-title { font-weight:600; margin-bottom:8px; }
+    .examples { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    pre { background:#041025; padding:16px; border-radius:8px; overflow-x:auto; white-space:pre-wrap; word-break:break-word; color:#d6e9ff; }
+    code { font-family:SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace; }
+    details { background-color: rgba(255,255,255,0.04); padding:12px 16px; border-radius:8px; }
+    summary { cursor: pointer; font-weight:600; font-size:15px; outline:none; }
+    details[open] summary::after { content: "▲"; float:right; }
+    summary::after { content: "▼"; float:right; }
+    .footer { color:#9aa4b2; font-size:13px; margin-top:12px; }
+    @media (max-width:720px){ .examples { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="body">
+  <div class="container card">
+    <header class="header">
+      <div class="header-left">
+        <h1 class="title">Filter Even Numbers from a List</h1>
+      </div>
+    </header>
+
+    <section class="card problem-section">
+      <div class="section-title">Problem</div>
+      <p>Given a list of integers <code>numbers</code>, return a new list that contains only the <strong>even</strong> numbers from the original list, preserving their original order. You <em>must</em> implement the solution using the <strong>Java Stream API</strong>.</p>
+
+      <div class="section-title">Function Signature</div>
+      <pre><code>public List&lt;Integer&gt; filterEvenNumbers(List&lt;Integer&gt; numbers)</code></pre>
+
+      <div class="section-title">Constraints</div>
+      <ul>
+        <li><code>1 &lt;= numbers.size() &lt;= 10^5</code></li>
+        <li><code>-10^9 &lt;= numbers[i] &lt;= 10^9</code></li>
+        <li>Order of numbers must be preserved.</li>
+      </ul>
+
+      <div class="section-title">Expected Time Complexity</div>
+      <p>O(n) — where n is the length of the input list.</p>
+
+      <div class="section-title">Hint</div>
+      <p>Use <code>numbers.stream()</code>, <code>filter()</code>, and <code>collect(Collectors.toList())</code>.</p>
+    </section>
+
+    <section class="card examples-section">
+      <div class="section-title">Examples</div>
+      <div class="examples">
+        <div class="example">
+          <strong>Example 1</strong>
+          <pre><code>Input:
+numbers = [1, 2, 3, 4, 5, 6]
+
+Output:
+[2, 4, 6]
+
+Explanation:
+All even numbers retained in original order.</code></pre>
+        </div>
+
+        <div class="example">
+          <strong>Example 2</strong>
+          <pre><code>Input:
+numbers = [7, 9, 13, 15]
+
+Output:
+[]
+
+Explanation:
+No even numbers present.</code></pre>
+        </div>
+
+        <div class="example">
+          <strong>Example 3</strong>
+          <pre><code>Input:
+numbers = [10, 21, 32, 43, 54]
+
+Output:
+[10, 32, 54]</code></pre>
+        </div>
+
+        <div class="example">
+          <strong>Edge Example</strong>
+          <pre><code>Input:
+numbers = []
+
+Output:
+[]
+
+Explanation:
+Empty input list returns empty list.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="card starter-code-section">
+      <details>
+        <summary>Solution</summary>
+        <pre><code>import java.util.*;
+import java.util.stream.Collectors;
+
+public class Solution {
+    public List&lt;Integer&gt; filterEvenNumbers(List&lt;Integer&gt; numbers) {
+        // Implement using Java Stream API
+        return numbers.stream()
+                      .filter(n -&gt; n % 2 == 0)
+                      .collect(Collectors.toList());
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        List&lt;Integer&gt; nums = Arrays.asList(1,2,3,4,5,6);
+        System.out.println(sol.filterEvenNumbers(nums)); // [2, 4, 6]
+    }
+}
+</code></pre>
+      </details>
+    </section>
+
+    <footer class="footer">
+     Created with &hearts; for StreamCode 
+    </footer>
+  </div>
+</body>
+</html>

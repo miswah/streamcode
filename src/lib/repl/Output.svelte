@@ -35,7 +35,7 @@
 			</div>
 
 			<!-- CheerpJ implicitly looks for a #console to write to -->
-			<pre class="font-mono text-sm h-0" bind:this={cjConsole} id="console" />
+			<p class="font-mono text-sm h-0" bind:this={cjConsole} id="console"> </p>
 		</div>
 	</section>
 </div>
