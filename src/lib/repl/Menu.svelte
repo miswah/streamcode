@@ -45,7 +45,7 @@
 	class="px-4 h-16 flex items-center justify-between gap-4 relative shadow dark:shadow-none dark:border-b border-b-stone-700 dark:bg-stone-800"
 >
 	<button class="text-xl text-orange-500 dark:text-orange-400 font-bold" on:click={createNewFile}>
-		<h1>JavaFiddle</h1>
+		<h1>StreamCode</h1>
 	</button>
 
 	<div class="grow flex flex-col justify-center self-stretch">

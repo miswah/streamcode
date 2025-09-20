@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
-	let description = 'JavaFiddle is an online, browser-based Java IDE. Create and share Swing applications for free!';
+	let description = 'StreamCode is fork of javafiddle powered by cheerpj';
 
 	function setFiddle() {
 		const fragmentURL: string = window.location.hash.slice(1);
@@ -35,8 +35,8 @@
 <svelte:head>
 	<title
 		>{$fiddleTitle
-			? `${$fiddleTitle} - JavaFiddle`
-			: 'JavaFiddle - Build and share Java code snippets in your browser'}</title
+			? `${$fiddleTitle} - StreamCode`
+			: 'StreamCode'}</title
 	>
 	<meta name="description" content={description} />
 </svelte:head>

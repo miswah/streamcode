@@ -40,33 +40,35 @@
 					class="grow p-4 leading-tight bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-300 text-sm"
 				>
 					<p>
-						JavaFiddle is an online tool to <b>build</b> and <b>share</b> snippets of Java code.
+						StreamCode is a fork of <b>JavaFiddle</b>
 					</p>
 
 					<hr class="my-6 border-stone-300 dark:border-stone-600" />
-
-					<ul class="list-disc space-y-2 ml-3">
-						<li>
-							Runs entirely <b>in your browser</b>.
-						</li>
-						<li>Supports all of Java SE 8, including Swing.</li>
-					</ul>
-
-					<div class="my-6 flex items-center justify-center gap-2">
-						<a
+					<div class="my-6 flex items-center justify-center gap-2"> 
+					<a
 							class="rounded bg-[#5865F2] text-white font-semibold px-3 py-2 inline-flex items-center justify-center gap-2"
 							href="https://discord.gg/qBMHpK9Kqve"
 						>
 							<Icon icon="fa-brands:discord" class="w-4 h-4" />
 							Discord server
 						</a>
+					</div>
 
+					<div class="my-6 flex items-center justify-center gap-2">
 						<a
 							class="rounded hover:bg-stone-800 text-stone-950 dark:text-white hover:text-white font-semibold px-3 py-2 inline-flex items-center justify-center gap-2"
 							href="https://github.com/leaningtech/javafiddle"
 						>
 							<Icon icon="fa-brands:github" class="w-4 h-4" />
-							View source
+							JavaFiddle Github
+						</a>
+
+						<a
+							class="rounded hover:bg-stone-800 text-stone-950 dark:text-white hover:text-white font-semibold px-3 py-2 inline-flex items-center justify-center gap-2"
+							href="https://github.com/miswah/streamcode"
+						>
+							<Icon icon="fa-brands:github" class="w-4 h-4" />
+							StreamCode Github
 						</a>
 					</div>
 				</div>
